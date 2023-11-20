@@ -23,12 +23,5 @@ jobs:
         steps:
             - uses: actions/checkout@v4
             - name: Run test
-              run: dotnet test ./Test/Unit/Unit.csproj
+              run: dotnet test
         needs: [build]
-    integration-test:
-        runs-on: ${{ inputs.os }}
-        steps:
-            - uses: actions/checkout@v4
-            - name: Run test
-              run: dotnet test ./Test/Integration/Integration.csproj
-        needs: [unit-test]
