@@ -1,0 +1,13 @@
+name: Pipeline de garantia de qualidade
+on: [push]
+jobs:
+    reusable:
+        strategy:
+            matrix:
+                dotnet-version: [ '7.0.x' ]
+                os: [ubuntu-latest, windows-latest, macos-latest]
+            fail-fast: true
+        uses: vinciusb/TP-ES2/.github/workflows/reusable.yml@main
+        with:
+            dotnet-version: ${{ matrix.dotnet-version }}
+            os: ${{ matrix.os }}
